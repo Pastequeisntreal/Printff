@@ -12,6 +12,7 @@
 
 #include <unistd.h>
 #include "libft.h"
+#include <stddef.h>
 
 int	ft_puthexa_fd(unsigned int nb, int fd, t_alpha_type alpha_type)
 {
@@ -43,4 +44,11 @@ int	ft_putmem_fd(long nb, int fd)
 		c = nb % 16 + '0';
 	res += write(fd, &c, 1);
 	return (res);
+}
+
+int	p_option(long nb)
+{
+	if (!nb)
+		return (write(1, "nil", 3));
+	return (write(1, "0x", 2) + ft_putmem_fd(nb, 1));
 }

@@ -50,8 +50,10 @@ int	get_flag(va_list var, char c)
 		res = ft_putstr_fd(va_arg(var, char *), 1);
 	else if (c == 'd' || c == 'i')
 		res = ft_putnbr_fd(va_arg(var, int), 1);
-	else if (c == 'x' || c == 'u' || c == 'X' || c == 'p')
+	else if (c == 'x' || c == 'u' || c == 'X')
 		res = ft_put_all_u(va_arg(var, unsigned int), c);
+	else if (c == 'p')
+		res = p_option(va_arg(var, long));
 	else
 		res = ft_put_other(c);
 	return (res);

@@ -27,5 +27,6 @@ int		ft_putendl_fd(const char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(char const *s, int fd);
 int		ft_putmem_fd(long nb, int fd);
+int		p_option(long nb);
 
 #endif
