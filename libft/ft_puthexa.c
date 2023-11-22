@@ -48,7 +48,7 @@ int	ft_putmem_fd(long nb, int fd)
 
 int	p_option(long nb)
 {
-	if (!nb)
+	if (nb < 0)
 		return (write(1, "nil", 3));
 	return (write(1, "0x", 2) + ft_putmem_fd(nb, 1));
 }
