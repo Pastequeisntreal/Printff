@@ -30,7 +30,7 @@ int	ft_puthexa_fd(unsigned int nb, int fd, t_alpha_type alpha_type)
 	return (res);
 }
 
-int	ft_putmem_fd(long nb, int fd)
+int	ft_putmem_fd(unsigned long nb, int fd)
 {
 	char	c;
 	int		res;
@@ -46,9 +46,9 @@ int	ft_putmem_fd(long nb, int fd)
 	return (res);
 }
 
-int	p_option(long nb)
+int	p_option(unsigned long nb)
 {
-	if (nb < 0)
-		return (write(1, "nil", 3));
+	if (!nb)
+		return (write(1, "(nil)", 5));
 	return (write(1, "0x", 2) + ft_putmem_fd(nb, 1));
 }

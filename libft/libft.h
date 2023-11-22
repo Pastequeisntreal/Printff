@@ -6,7 +6,7 @@
 /*   By: gberthol <gberthol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:27:53 by gberthol          #+#    #+#             */
-/*   Updated: 2023/11/13 14:10:22 by gberthol         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:10:08 by gberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_putchar_fd(unsigned char c, int fd);
 int		ft_putendl_fd(const char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(char const *s, int fd);
-int		ft_putmem_fd(long nb, int fd);
-int		p_option(long nb);
+int		ft_putmem_fd(unsigned long nb, int fd);
+int		p_option(unsigned long nb);
 
 #endif

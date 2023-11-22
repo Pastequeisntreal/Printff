@@ -53,7 +53,7 @@ int	get_flag(va_list var, char c)
 	else if (c == 'x' || c == 'u' || c == 'X')
 		res = ft_put_all_u(va_arg(var, unsigned int), c);
 	else if (c == 'p')
-		res = p_option(va_arg(var, long));
+		res = p_option(va_arg(var, unsigned long));
 	else
 		res = ft_put_other(c);
 	return (res);
