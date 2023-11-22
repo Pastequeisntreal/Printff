@@ -17,32 +17,50 @@
 int	ft_puthexa_fd(unsigned int nb, int fd, t_alpha_type alpha_type)
 {
 	char	c;
+	int		save;
 	int		res;
 
 	res = 0;
 	if (nb >= 16)
-		res += ft_puthexa_fd(nb / 16, fd, alpha_type);
+	{
+		save = ft_puthexa_fd(nb / 16, fd, alpha_type);
+		if (save < 0)
+			return (-1);
+		res += save;
+	}
 	if (nb % 16 >= 10)
 		c = nb % 16 - 10 + 'A' + alpha_type;
 	else
 		c = nb % 16 + '0';
-	res += write(fd, &c, 1);
+	save = write(fd, &c, 1);
+	if (save < 0)
+		return (-1);
+	res += save;
 	return (res);
 }
 
 int	ft_putmem_fd(unsigned long nb, int fd)
 {
 	char	c;
+	int		save;
 	int		res;
 
 	res = 0;
 	if (nb >= 16)
-		res += ft_putmem_fd(nb / 16, fd);
+	{
+		save = ft_putmem_fd(nb / 16, fd);
+		if (save < 0)
+			return (-1);
+		res += save;
+	}
 	if (nb % 16 >= 10)
 		c = nb % 16 - 10 + 'a';
 	else
 		c = nb % 16 + '0';
-	res += write(fd, &c, 1);
+	save = write(fd, &c, 1);
+	if (save < 0)
+		return (-1);
+	res += save;
 	return (res);
 }
 
