@@ -18,9 +18,12 @@ int	ft_put_other(char c)
 {
 	int	res;
 
-	res = ft_putchar_fd('%', 1);
-	if (c != '%')
-		res += ft_putchar_fd(c, 1);
+	if (c == '%')
+	{
+		res = ft_putchar_fd('%', 1);
+	}
+	if (c == 0)
+		return (-1);
 	return (res);
 }
 
