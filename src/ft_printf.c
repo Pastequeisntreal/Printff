@@ -69,7 +69,7 @@ int	ft_printf(const char *str, ...)
 	va_start(var, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && (!i || str[i - 1] != '%'))
+		if (str[i] == '%')
 			ret = get_flag(var, str[++i]);
 		else
 			ret = ft_putchar_fd(str[i], 1);
