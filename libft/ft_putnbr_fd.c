@@ -6,7 +6,7 @@
 /*   By: gberthol <gberthol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:43:38 by gberthol          #+#    #+#             */
-/*   Updated: 2023/11/09 16:18:27 by gberthol         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:14:55 by gberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_putnbr_fd(int n, int fd)
 
 	res = 0;
 	if (n == -2147483648)
-		return (write(fd, "-2147483648", 11));
+		return ((int)write(fd, "-2147483648", 11));
 	if (n < 0)
 	{
-		res += write(fd, "-", 1);
-		if (res < 0)
+		if (write(fd, "-", 1) < 0)
 			return (-1);
+		res++;
 		n *= -1;
 	}
 	if (n >= 10)
@@ -35,10 +35,9 @@ int	ft_putnbr_fd(int n, int fd)
 			return (-1);
 		res += save;
 	}
-	save = ft_putchar_fd((n % 10 + '0'), 0);
-	if (save < 0)
+	if (ft_putchar_fd((n % 10 + '0'), 0) < 0)
 		return (-1);
-	res += save;
+	res++;
 	return (res);
 }
 

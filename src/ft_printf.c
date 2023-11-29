@@ -66,6 +66,8 @@ int	ft_printf(const char *str, ...)
 	int		ret;
 	int		res;
 
+	if (!str || !str[0])
+		return (-1);
 	i = 0;
 	res = 0;
 	va_start(var, str);
@@ -76,7 +78,7 @@ int	ft_printf(const char *str, ...)
 		else
 			ret = ft_putchar_fd(str[i], 1);
 		if (ret < 0)
-			return (-1);
+			return (va_end(var), -1);
 		else
 			res += ret;
 		i++;
