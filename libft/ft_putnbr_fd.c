@@ -35,7 +35,7 @@ int	ft_putnbr_fd(int n, int fd)
 			return (-1);
 		res += save;
 	}
-	if (ft_putchar_fd((n % 10 + '0'), 0) < 0)
+	if (ft_putchar_fd((n % 10 + '0'), 1) < 0)
 		return (-1);
 	res++;
 	return (res);
